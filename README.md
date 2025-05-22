@@ -17,19 +17,18 @@ This independent project analyzes 119,390 hotel bookings (2015–2017) to delive
   - SQL Querying, R Visualization, Tableau Mapping, Business Insights.
 
 ## Files
-- `hotel_booking_analysis.Rmd`: R Markdown source.
-- `hotel_booking_analysis.pdf`: Full report (PDF).
-- `hotel_booking_analysis.html`: Full report (HTML).
+- `HOTEL_BOOKING_MARKDOWN_REPORT_MLOIZOS.Rmd`: R Markdown source.
+- `Report_hotel_booking_analysis.pdf`: Full report (PDF).
 
-[View the Full Report (PDF)](hotel_booking_analysis.pdf)  
-[View the Full Report (HTML)](hotel_booking_analysis.html)
+
+[View the Full Report (PDF)](Report_hotel_booking_analysis.pdf)  
 
 
 ## How to Run
 1. Clone this repo: `git clone https://github.com/michloiz/Hotel_Booking_Analysis.git`
 2. Open `hotel_booking_analysis.Rmd` in RStudio and knit to PDF/HTML.
 
-*Dataset not included due to size, but it can be retrieved here: https://www.kaggle.com/datasets/mojtaba142/hotel-booking
+*Dataset not included due to size, but it can be accessed from here: https://www.kaggle.com/datasets/mojtaba142/hotel-booking
 
 ## Contact
 - LinkedIn: [Michalis Loizos](https://www.linkedin.com/in/michalis-loizos/)
