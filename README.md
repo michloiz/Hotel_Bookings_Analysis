@@ -1,93 +1,113 @@
-<!-- Add a project banner or logo -->
-<p align="center">
-  <img src="logo_placeholder.png" alt="Project Logo" width="200">
-</p>
-
-# Hotel Booking Analysis
-**Independent Data Analytics Project**  
-**Michalis Loizos, May 2025**
-
-![GitHub last commit](https://img.shields.io/github/last-commit/michloiz/Hotel_Bookings_Analysis)
-![GitHub repo size](https://img.shields.io/github/repo-size/michloiz/Hotel_Bookings_Analysis)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-This independent project analyzes 119,390 hotel bookings (2015–2017) to deliver hospitality insights using **BigQuery SQL**, **R** (tidyverse, ggplot2), **Google Sheets**, and **Tableau**. It uncovers trends in bookings, cancellations, and customer behavior, providing actionable, data-driven recommendations. This complements my [Bellabeat Analysis](#) project for a diverse portfolio targeting data analyst roles.
-
----
-
-## Project Overview
-
-- **Dataset**: 119,390 hotel bookings (2015–2017), covering arrivals, cancellations, and customer types (not included due to size).
-- **Tools Used**: 
-  - BigQuery SQL (Data Querying)
-  - R (Data Wrangling, Visualization with tidyverse and ggplot2)
-  - Google Sheets (Intermediate Analysis)
-  - Tableau (Interactive Dashboards)
-- **Key Insights**:
-  - **Seasonality**: Booking peaks were identified in May (2016–2017).
-  - **Hotel Type Preference**: City Hotels lead with 61.5% of bookings.
-  - **Cancellations**: Transient Customers lead cancellations (82.6%).
-  - **Target Audience**: Adults dominate with 91.9% of bookings.
-  - **Channel Optimization**: Travel agencies contributed to 83.6% of all bookings.
-- **Recommendations**:
-  - Optimize marketing campaigns for adults.
-  - Strengthen partnerships with travel agencies.
-  - Implement strategies to reduce transient customer cancellations (e.g., dynamic pricing).
-
----
-
-## Sample Visualizations
-
-Below are a few insights visualized during the analysis:
-
-### Booking Trends Over Time
-![Booking Trends](path_to_booking_trends_chart.png)
-
-### Cancellations by Customer Type
-![Cancellations](path_to_cancellations_chart.png)
-
-### Hotel Type Distribution
-![Hotel Type Distribution](path_to_hotel_type_chart.png)
-
-More details are available in the [full report](Report_hotel_booking_analysis.pdf).
-
----
-
-## How to Run the Project
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/michloiz/Hotel_Booking_Analysis.git
-   ```
-2. Open the R Markdown report (`hotel_booking_analysis.Rmd`) in RStudio.
-3. Knit the report to PDF/HTML to view the results.
-
-> ⚠️ *Note*: The dataset is not included due to size constraints but can be accessed [here](https://www.kaggle.com/datasets/mojtaba142/hotel-booking).
-
----
-
-## Repository Structure
-
-```
-Hotel_Bookings_Analysis/
-│
-├── HOTEL_BOOKING_MARKDOWN_REPORT_MLOIZOS.Rmd  # R Markdown source
-├── Report_hotel_booking_analysis.pdf         # Full report (PDF)
-├── README.md                                 # Project documentation
-└── ... (other files)
-```
-
----
-
-## Contact
-
-Feel free to reach out for any inquiries:
-
-- **LinkedIn**: [Michalis Loizos](https://www.linkedin.com/in/michalis-loizos/)
-- **Email**: [mihalis.loizos@gmail.com](mailto:mihalis.loizos@gmail.com)
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+1| <!-- Add a project banner or logo -->
+2| <p align="center">
+3|   <img src="logo_placeholder.png" alt="Project Logo" width="200">
+4| </p>
+5| 
+6| # Hotel Booking Analysis
+7| **Independent Data Analytics Project**  
+8| **Michalis Loizos, May 2025**
+9| 
+10| ![GitHub last commit](https://img.shields.io/github/last-commit/michloiz/Hotel_Bookings_Analysis)
+11| ![GitHub repo size](https://img.shields.io/github/repo-size/michloiz/Hotel_Bookings_Analysis)
+12| ![License](https://img.shields.io/badge/license-MIT-green)
+13| 
+14| This independent project analyzes 119,390 hotel bookings (2015–2017) to deliver hospitality insights using **BigQuery SQL**, **R** (tidyverse, ggplot2), **Google Sheets**, and **Tableau**. It un[...]
+15| 
+16| ---
+17| 
+18| ## Project Overview
+19| 
+20| - **Dataset**: 119,390 hotel bookings (2015–2017), covering arrivals, cancellations, and customer types (not included due to size).
+21| - **Tools Used**: 
+22|   - BigQuery SQL (Data Querying)
+23|   - R (Data Wrangling, Visualization with tidyverse and ggplot2)
+24|   - Google Sheets (Intermediate Analysis)
+25|   - Tableau (Interactive Dashboards)
+26| - **Key Insights**:
+27|   - **Seasonality**: Booking peaks were identified in May (2016–2017).
+28|   - **Hotel Type Preference**: City Hotels lead with 61.5% of bookings.
+29|   - **Cancellations**: Transient Customers lead cancellations (82.6%).
+30|   - **Target Audience**: Adults dominate with 91.9% of bookings.
+31|   - **Channel Optimization**: Travel agencies contributed to 83.6% of all bookings.
+32| - **Recommendations**:
+33|   - Optimize marketing campaigns for adults.
+34|   - Strengthen partnerships with travel agencies.
+35|   - Implement strategies to reduce transient customer cancellations (e.g., dynamic pricing).
+36| 
+37| ---
+38| 
+39| ## Sample Visualizations
+40| 
+41| Below are a few insights visualized during the analysis:
+42| 
+43| ### Monthly Trends in Bookings
+44| ![Figure 1: Monthly Trends in Bookings](figures/Figure_1.png)
+45| 
+46| ### Bookings per Hotel Type
+47| ![Figure 2: Bookings per Hotel Type](figures/Figure_2.png)
+48| 
+49| ### Bookings by Customer Type
+50| ![Figure 3: Bookings by Customer Type](figures/Figure_3.png)
+51| 
+52| ### Bookings by Families with Children/Babies
+53| ![Figure 4: Bookings by Families with Children/Babies](figures/Figure_4.png)
+54| 
+55| ### Bookings by Stay Type (Weekdays vs. Weekends)
+56| ![Figure 5: Bookings by Stay Type](figures/Figure_5.png)
+57| 
+58| ### Monthly Trends in Booking Changes
+59| ![Figure 6: Monthly Trends in Booking Changes](figures/Figure_6.png)
+60| 
+61| ### Monthly Trends in Cancellations
+62| ![Figure 7: Monthly Trends in Cancellations](figures/Figure_7.png)
+63| 
+64| More details are available in the [full report](Report_hotel_booking_analysis.pdf).
+65| 
+66| ---
+67| 
+68| ## How to Run the Project
+69| 
+70| 1. Clone this repository:
+71|    ```bash
+72|    git clone https://github.com/michloiz/Hotel_Booking_Analysis.git
+73|    ```
+74| 2. Open the R Markdown report (`hotel_booking_analysis.Rmd`) in RStudio.
+75| 3. Knit the report to PDF/HTML to view the results.
+76| 
+77| > ⚠️ *Note*: The dataset is not included due to size constraints but can be accessed [here](https://www.kaggle.com/datasets/mojtaba142/hotel-booking).
+78| 
+79| ---
+80| 
+81| ## Repository Structure
+82| 
+83| ```
+84| Hotel_Bookings_Analysis/
+85| │
+86| ├── figures/                                # Folder with figures generated by the analysis
+87| │   ├── Figure_1.png                        # Monthly Trends in Bookings
+88| │   ├── Figure_2.png                        # Bookings per Hotel Type
+89| │   ├── Figure_3.png                        # Bookings by Customer Type
+90| │   ├── Figure_4.png                        # Bookings by Families with Children/Babies
+91| │   ├── Figure_5.png                        # Bookings by Stay Type (Weekdays vs. Weekends)
+92| │   ├── Figure_6.png                        # Monthly Trends in Booking Changes
+93| │   └── Figure_7.png                        # Monthly Trends in Cancellations
+94| ├── HOTEL_BOOKING_MARKDOWN_REPORT_MLOIZOS.Rmd  # R Markdown source
+95| ├── Report_hotel_booking_analysis.pdf         # Full report (PDF)
+96| ├── README.md                                 # Project documentation
+97| └── ... (other files)
+98| ```
+99| 
+100| ---
+101| 
+102| ## Contact
+103| 
+104| Feel free to reach out for any inquiries:
+105| 
+106| - **LinkedIn**: [Michalis Loizos](https://www.linkedin.com/in/michalis-loizos/)
+107| - **Email**: [mihalis.loizos@gmail.com](mailto:mihalis.loizos@gmail.com)
+108| 
+109| ---
+110| 
+111| ## License
+112| 
+113| This project is licensed under the [MIT License](LICENSE).
