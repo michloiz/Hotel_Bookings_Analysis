@@ -41,25 +41,25 @@ This independent project analyzes 119,390 hotel bookings (2015–2017) to delive
 Below are a few insights visualized during the analysis:
 
 ### Monthly Trends in Bookings
-![Figure 1: Monthly Trends in Bookings](files/Figure_Files/Figure_1.png)
+![Figure 1: Monthly Trends in Bookings](Figure_Files/Figure_1.png)
 
 ### Bookings per Hotel Type
-![Figure 2: Bookings per Hotel Type](files/Figure_Files/Figure_2.png)
+![Figure 2: Bookings per Hotel Type](Figure_Files/Figure_2.png)
 
 ### Bookings by Customer Type
-![Figure 3: Bookings by Customer Type](files/Figure_Files/Figure_3.png)
+![Figure 3: Bookings by Customer Type](Figure_Files/Figure_3.png)
 
 ### Bookings by Families with Children/Babies
-![Figure 4: Bookings by Families with Children/Babies](files/Figure_Files/Figure_4.png)
+![Figure 4: Bookings by Families with Children/Babies](Figure_Files/Figure_4.png)
 
 ### Bookings by Stay Type (Weekdays vs. Weekends)
-![Figure 5: Bookings by Stay Type](files/Figure_Files/Figure_5.png)
+![Figure 5: Bookings by Stay Type](Figure_Files/Figure_5.png)
 
 ### Monthly Trends in Booking Changes
-![Figure 6: Monthly Trends in Booking Changes](files/Figure_Files/Figure_6.png)
+![Figure 6: Monthly Trends in Booking Changes](Figure_Files/Figure_6.png)
 
 ### Monthly Trends in Cancellations
-![Figure 7: Monthly Trends in Cancellations](files/Figure_Files/Figure_7.png)
+![Figure 7: Monthly Trends in Cancellations](Figure_Files/Figure_7.png)
 
 More details are available in the [full report](Report_hotel_booking_analysis.pdf).
 
