@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Analysis</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        .header-info {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .header-info p {
+            margin: 5px 0;
+            font-weight: 500;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .figure-caption {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .back-to-top {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-to-top a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-to-top a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel Booking Analysis</h1>
+        
+        <div class="header-info">
+            <p><strong>Author:</strong> Michalis Loizos</p>
+            <p><strong>Date:</strong> May 9, 2025</p>
+            <p><strong>Project Type:</strong> Independent Data Analytics Project</p>
+        </div>
+
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>This independent project, developed to showcase my data analytics skills, analyzes 119,390 hotel bookings from 2015 to 2017 to deliver hospitality insights. Using BigQuery SQL, R (tidyverse, ggplot2), and other tools, the project provides actionable insights.</p>
+            
+            <div class="code-block">
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>I. Results on Bookings</h2>
+            
+            <p>Before analysis, I inspected the dataset to determine if cleaning was required, checking for inconsistencies or missing values. No major cleaning was necessary beyond handling missing data for 2015.</p>
+            
+            <p>The analysis begins by examining monthly booking trends for the available time period, covering 2015, 2016, and 2017. The bookings per year per month are visualized in <strong>Figure 1</strong>. As expected, bookings peak during specific months.</p>
+            
+            <img src="Figure_Files/Figure_1.png" alt="Figure 1: Monthly Trends in Bookings">
+            <div class="figure-caption">Figure 1: Monthly Trends in Bookings</div>
+            
+            <div class="code-block">
+hb1 <- read.csv("HOTEL_BOOKINGS_PER_YEAR_PER_MONTH.csv")
+figure_1 <- ggplot(data = hb1) +
+  geom_col(mapping = aes(x = Month_of_Arrival, y = Number_of_Bookings, fill = Number_of_Bookings), width = 0.7) +
+  facet_wrap(~Year_of_Arrival) +
+  labs(x = "Arrival Month", y = "Number of Bookings", title = "Figure 1: Monthly Trends in Bookings") +
+  theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+  scale_fill_viridis_c() +
+  coord_fixed(ratio = 0.005)
+figure_1
+ggsave("Figure_1.png", plot = figure_1, width = 8, height = 5)
+            </div>
+            
+            <p>Next, the bookings were evaluated in terms of hotel type. Specifically, during the recorded data period, 38.5% of bookings were made in Resort Hotels, while 61.5% were for a City Hotel. This can be visualized in <strong>Figure 2</strong>.</p>
+            
+            <img src="Figure_Files/Figure_2.png" alt="Figure 2: Bookings per Hotel Type">
+            <div class="figure-caption">Figure 2: Bookings per Hotel Type</div>
+            
+            <div class="code-block">
+hb2 <- read.csv("BOOKINGS_HOTEL_TYPE_PER_MONTH_PER_YEAR.csv")
+figure_2 <- ggplot(data = hb2, aes(x = reorder(Month_of_Arrival, match(Month_of_Arrival, month.name)), y = number_of_bookings, fill = number_of_bookings)) +
+  geom_col(width = 0.3) +
+  scale_fill_viridis_c() +
+  labs(x = "Arrival Month", y = "Number of Bookings", title = "Figure 2: Bookings per Hotel Type") +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1, size = 8),
+    axis.title = element_text(size = 10),
+    strip.text = element_text(size = 8, face = "bold")
+  ) +
+  facet_grid(Year ~ Type_of_Hotel, scales = "free_y")
+figure_2
+ggsave("Figure_2.png", plot = figure_2, width = 8, height = 5)
+            </div>
+            
+            <p>Bookings were then categorized by customer type: Transient, Transient-Party, Group, and Contract. Of the total non-canceled bookings, 70.6% were made by Transient customers (<strong>Figure 3</strong>).</p>
+            
+            <img src="Figure_Files/Figure_3.png" alt="Figure 3: Bookings by Customer Type">
+            <div class="figure-caption">Figure 3: Bookings by Customer Type</div>
+            
+            <div class="code-block">
+hb3 <- read.csv("BOOKINGS_CUSTOMER_TYPE_PER_MONTH_PER_YEAR.csv")
+figure_3 <- ggplot(data = hb3, aes(x = reorder(Month_of_arrival, match(Month_of_arrival, month.name)), y = Number_of_bookings, fill = Number_of_bookings)) +
+  geom_col(width = 0.8) +
+  scale_fill_viridis_c() +
+  labs(x = "Arrival Month", y = "Number of Bookings", title = "Figure 3: Bookings by Customer Type") +
+  theme(
+    axis.text.x = element_text(angle = 60, hjust = 1, size = 8),
+    axis.title = element_text(size = 10),
+    strip.text = element_text(size = 8, face = "bold")
+  ) +
+  facet_grid(Year ~ Type_of_customer, scales = "free_y")
+figure_3
+ggsave("Figure_3.png", plot = figure_3, width = 8, height = 5)
+            </div>
+            
+            <p>I then determined what percentage of bookings were made by families with children and/or babies (<strong>Figure 4</strong>). Of the total bookings, 7.1% were from families with children, 0.8% were families with babies, and 0.1% were families with both children and babies.</p>
+            
+            <img src="Figure_Files/Figure_4.png" alt="Figure 4: Bookings by Families with Children/Babies">
+            <div class="figure-caption">Figure 4: Bookings by Families with Children/Babies</div>
+            
+            <div class="code-block">
+hb6 <- read_xlsx("BOOKINGS_MADE_CHILDREN_BABIES_OR_BOTH.xlsx")
+figure_4 <- ggplot(data = hb6) +
+  geom_col(mapping = aes(x = Category, y = Number_of_bookings, fill = Number_of_bookings), width = 0.6) +
+  facet_wrap(~Year) +
+  labs(x = "Family Type", y = "Number of Bookings", title = "Figure 4: Bookings by Families with Children/Babies") +
+  theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+  scale_fill_viridis_c()
+figure_4
+ggsave("Figure_4.png", plot = figure_4, width = 8, height = 5)
+            </div>
+            
+            <p>I then analyzed whether bookings involved stays only on weekdays, weekends, or both, with results shown in <strong>Figure 5</strong>. Of the bookings, 42.7% stayed on weekdays only, 50.5% stayed during weekends, and 6.8% stayed during both.</p>
+            
+            <img src="Figure_Files/Figure_5.png" alt="Figure 5: Bookings by Stay Type (Weekdays vs. Weekends)">
+            <div class="figure-caption">Figure 5: Bookings by Stay Type (Weekdays vs. Weekends)</div>
+            
+            <div class="code-block">
+hb8 <- read_xlsx("BOOKINGS_STAYED_WEEKEND_ONLY_OR_WEEKDAYS_ONLY.xlsx")
+figure_5 <- ggplot(data = hb8) +
+  geom_col(mapping = aes(x = Booking_type, y = Number_of_bookings, fill = Number_of_bookings), width = 0.6) +
+  facet_wrap(~Year) +
+  labs(x = "Stay Type", y = "Number of Bookings", title = "Figure 5: Bookings by Stay Type (Weekdays vs. Weekends)") +
+  theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+  scale_fill_viridis_c()
+figure_5
+ggsave("Figure_5.png", plot = figure_5, width = 8, height = 5)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>II. Booking Changes</h2>
+            
+            <p>In this section, I analyzed booking changes, starting by examining available data to observe any monthly trends. <strong>Figure 6</strong> shows no significant trends (sharp peaks or minimums). This suggests that booking changes were consistent throughout the years.</p>
+            
+            <img src="Figure_Files/Figure_6.png" alt="Figure 6: Monthly Trends in Booking Changes">
+            <div class="figure-caption">Figure 6: Monthly Trends in Booking Changes</div>
+            
+            <div class="code-block">
+hb4 <- read.csv("BOOKING_CHANGES_PER_YEAR_PER_MONTH.csv")
+figure_6 <- ggplot(data = hb4) +
+  geom_col(mapping = aes(x = arrival_date_month, y = Number_of_bookings, fill = Number_of_bookings), width = 1) +
+  facet_wrap(~arrival_date_year) +
+  labs(x = "Arrival Month", y = "Number of Booking Changes", title = "Figure 6: Monthly Trends in Booking Changes") +
+  theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+  scale_fill_viridis_c()
+figure_6
+ggsave("Figure_6.png", plot = figure_6, width = 8, height = 5)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>III. Cancellations</h2>
+            
+            <p>Finally, I investigated cancellations. As seen in <strong>Figure 7</strong>, there is no apparent trend in monthly cancellations (no sharp peaks or minimums). This consistency suggests the hotel can maintain steady cancellation rates.</p>
+            
+            <img src="Figure_Files/Figure_7.png" alt="Figure 7: Monthly Trends in Cancellations per Year">
+            <div class="figure-caption">Figure 7: Monthly Trends in Cancellations per Year</div>
+            
+            <div class="code-block">
+hb10 <- read.csv("CANCELATIONS_PER_MONTH_PER_YEAR.csv")
+figure_7 <- ggplot(data = hb10) +
+  geom_col(mapping = aes(x = Month_of_Arrival, y = Number_of_Cancelations, fill = Number_of_Cancelations), width = 0.7) +
+  facet_wrap(~arrival_date_year) +
+  labs(x = "Arrival Month", y = "Number of Cancellations", title = "Figure 7: Monthly Trends in Cancellations per Year") +
+  theme(axis.text.x = element_text(angle = 65, hjust = 1)) +
+  scale_fill_viridis_c() +
+  coord_fixed(ratio = 0.005)
+figure_7
+ggsave("Figure_7.png", plot = figure_7, width = 8, height = 5)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>IV. Limitations</h2>
+            
+            <p>Data from 2015 and 2017 are included in the report; however, since data for several months are missing for 2015 and some for 2017, no definite conclusions can be drawn for 2015 especially. Additionally, external factors (e.g., marketing campaigns, local events) were not considered in the analysis.</p>
+        </div>
+
+        <div class="section">
+            <h2>V. Conclusions</h2>
+            
+            <p>This project analyzed 119,390 hotel bookings from 2015 to 2017, uncovering key trends in bookings, cancellations, and customer behavior. Key findings include a peak in bookings during May for 2016 and 2017 and higher bookings for City Hotels compared to Resort Hotels.</p>
+            
+            <p>This project showcases my skills in BigQuery SQL (data querying), R (tidyverse, ggplot2 for visualizations), Google Sheets (data cleaning), and Tableau (interactive maps), as well as my ability to deliver actionable insights.</p>
+        </div>
+
+        <div class="back-to-top">
+            <a href="#top">↑ Back to Top</a>
+        </div>
+    </div>
+</body>
+</html>
