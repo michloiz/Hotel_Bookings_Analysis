@@ -71,7 +71,7 @@ More details are available in the [full report](Report_hotel_booking_analysis.pd
 2. Open the R Markdown report (`hotel_booking_analysis.Rmd`) in RStudio.
 3. Knit the report to PDF/HTML to view the results.
 
-> ⚠️ *Note*: The dataset is not included due to size constraints but can be accessed [here](https://www.kaggle.com/datasets/mojtaba142/hotel-booking).
+> ⚠️ *Note*: The dataset is not included but can be accessed [here](https://www.kaggle.com/datasets/mojtaba142/hotel-booking).
 
 ---
 
