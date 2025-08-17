@@ -1,7 +1,4 @@
-<!-- Add a project banner or logo -->
-<p align="center">
-  <img src="logo_placeholder.png" alt="Project Logo" width="200">
-</p>
+
 
 # Hotel Booking Analysis
 **Independent Data Analytics Project**  
